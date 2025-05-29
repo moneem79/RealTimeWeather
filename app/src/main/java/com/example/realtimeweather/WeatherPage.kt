@@ -2,6 +2,7 @@ package com.example.realtimeweather
 
 import android.graphics.drawable.Icon
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -36,42 +37,41 @@ fun WeatherPage(viewModel: WeatherViewModel){
     }
 
 
-
+Box{
     Column (modifier = Modifier.fillMaxWidth().padding(8.dp),
-        horizontalAlignment = Alignment.CenterHorizontally){
-        Row(modifier = Modifier.fillMaxWidth().padding(8.dp),
-            verticalAlignment = Alignment.CenterVertically) {
+        horizontalAlignment = Alignment.CenterHorizontally) {
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(8.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             OutlinedTextField(
-                modifier = Modifier.weight(1f  ),
+                modifier = Modifier.weight(1f),
                 value = city,
                 onValueChange = {
-                    city=it
+                    city = it
                 },
                 label = {
                     Text(text = "Search for any location")
                 }
 
 
-
             )
-        IconButton(
-            onClick = {
-                viewModel.getData(city)
+            IconButton(
+                onClick = {
+                    viewModel.getData(city)
+                }
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Search,
+                    contentDescription = "Search for any Location"
+                )
             }
-        ) {
-            Icon(imageVector = Icons.Default.Search,
-                contentDescription = "Search for any Location")
-        }
-
-
-
 
 
         }
 
 
-
-
+    }
 
 
     }
