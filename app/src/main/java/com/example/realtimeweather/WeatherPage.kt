@@ -40,8 +40,7 @@ fun WeatherPage(viewModel: WeatherViewModel){
     Column (modifier = Modifier.fillMaxWidth().padding(8.dp),
         horizontalAlignment = Alignment.CenterHorizontally){
         Row(modifier = Modifier.fillMaxWidth().padding(8.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement =Arrangement.SpaceEvenly) {
+            verticalAlignment = Alignment.CenterVertically) {
             OutlinedTextField(
                 modifier = Modifier.weight(1f  ),
                 value = city,
